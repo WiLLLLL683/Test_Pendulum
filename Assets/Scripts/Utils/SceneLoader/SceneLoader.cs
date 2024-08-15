@@ -25,8 +25,6 @@ namespace Utils
 
         public IEnumerator LoadRoutine(string sceneName, LoadSceneMode mode = LoadSceneMode.Additive)
         {
-            yield return new WaitForSeconds(1f);
-
             yield return loadScreenUI.Show();
 
             //загрузка сцены

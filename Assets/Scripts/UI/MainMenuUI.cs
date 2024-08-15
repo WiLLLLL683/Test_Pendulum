@@ -9,18 +9,17 @@ namespace Test_Pendulum
 {
     public class MainMenuUI : MonoBehaviour
     {
-        private SceneLoader sceneLoader;
+        private StateMachine stateMachine;
 
         [Inject]
-        public void Init(SceneLoader sceneLoader)
+        public void Init(StateMachine stateMachine)
         {
-            this.sceneLoader = sceneLoader;
+            this.stateMachine = stateMachine;
         }
 
         public void Button_StartGame()
         {
-            sceneLoader.UnloadScene(GlobalConstants.MAIN_MENU_SCENE);
-            sceneLoader.LoadScene(GlobalConstants.GAMEPLAY_SCENE);
+            stateMachine.EnterState<GamePlayState>();
         }
     }
 }

@@ -8,17 +8,17 @@ namespace Test_Pendulum
 {
     public class GamePlayUI : MonoBehaviour
     {
-        private SceneLoader sceneLoader;
+        private StateMachine stateMachine;
 
         [Inject]
-        public void Init(SceneLoader sceneLoader)
+        public void Init(StateMachine stateMachine)
         {
-            this.sceneLoader = sceneLoader;
+            this.stateMachine = stateMachine;
         }
 
         public void Button_GameOver()
         {
-            sceneLoader.LoadScene(GlobalConstants.GAME_OVER_SCENE, showLoadScreen: false);
+            stateMachine.EnterState<GameOverState>();
         }
     }
 }

@@ -8,26 +8,22 @@ namespace Test_Pendulum
 {
     public class GameOverUI : MonoBehaviour
     {
-        private SceneLoader sceneLoader;
+        private StateMachine stateMachine;
 
         [Inject]
-        public void Init(SceneLoader sceneLoader)
+        public void Init(StateMachine stateMachine)
         {
-            this.sceneLoader = sceneLoader;
+            this.stateMachine = stateMachine;
         }
 
         public void Button_Restart()
         {
-            sceneLoader.UnloadScene(GlobalConstants.GAMEPLAY_SCENE);
-            sceneLoader.UnloadScene(GlobalConstants.GAME_OVER_SCENE);
-            sceneLoader.LoadScene(GlobalConstants.GAMEPLAY_SCENE);
+            stateMachine.EnterState<GamePlayState>();
         }
 
         public void Button_Exit()
         {
-            sceneLoader.UnloadScene(GlobalConstants.GAMEPLAY_SCENE);
-            sceneLoader.UnloadScene(GlobalConstants.GAME_OVER_SCENE);
-            sceneLoader.LoadScene(GlobalConstants.MAIN_MENU_SCENE);
+            stateMachine.EnterState<MainMenuState>();
         }
     }
 }

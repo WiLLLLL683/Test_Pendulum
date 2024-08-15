@@ -8,17 +8,23 @@ namespace Test_Pendulum
 {
     public class Bootstrap : MonoBehaviour
     {
-        private SceneLoader sceneLoader;
+        private StateMachine stateMachine;
+        private StateFactory stateFactory;
 
         [Inject]
-        public void Init(SceneLoader sceneLoader)
+        public void Init(StateMachine stateMachine, StateFactory stateFactory)
         {
-            this.sceneLoader = sceneLoader;
+            this.stateMachine = stateMachine;
+            this.stateFactory = stateFactory;
         }
 
         private void Awake()
         {
-            sceneLoader.LoadScene(GlobalConstants.MAIN_MENU_SCENE);
+            stateMachine.AddState(stateFactory.Create<MainMenuState>());
+            stateMachine.AddState(stateFactory.Create<GamePlayState>());
+            stateMachine.AddState(stateFactory.Create<GameOverState>());
+
+            stateMachine.EnterState<MainMenuState>();
         }
     }
 }

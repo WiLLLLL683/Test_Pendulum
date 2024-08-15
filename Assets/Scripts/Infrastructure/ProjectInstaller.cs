@@ -11,6 +11,8 @@ namespace Test_Pendulum
         public override void InstallBindings()
         {
             Container.Bind<SceneLoader>().FromInstance(sceneLoader).AsSingle();
+            Container.Bind<StateMachine>().AsSingle();
+            Container.Bind<StateFactory>().AsSingle();
         }
     }
 }

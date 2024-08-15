@@ -1,0 +1,45 @@
+{
+    "name": "GameActions",
+    "maps": [
+        {
+            "name": "GamePlay",
+            "id": "fe7841de-4e03-453f-85c1-883f809fc452",
+            "actions": [
+                {
+                    "name": "ReleaseBall",
+                    "type": "Button",
+                    "id": "810a8d3e-e3d4-491b-a251-d405b0e7c54b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1d8b7198-7a40-4a89-bf95-36618d54ea9e",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ReleaseBall",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d8d097a0-dd50-4ae4-b4f4-690b596c6fbe",
+                    "path": "<Touchscreen>/primaryTouch/tap",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ReleaseBall",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

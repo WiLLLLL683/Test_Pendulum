@@ -15,6 +15,7 @@ namespace Test_Pendulum
             Container.Bind<StateMachine>().AsSingle();
             Container.Bind<StateFactory>().AsSingle();
             Container.Bind<BallSpawner>().FromInstance(new(ballPrefab)).AsSingle();
+            Container.Bind<Input>().AsSingle();
         }
     }
 }

@@ -9,6 +9,7 @@ namespace Test_Pendulum
         public int Id { get; private set; }
 
         [SerializeField] private Rigidbody2D rb;
+        [SerializeField] private Collider2D collider2d;
         [SerializeField] private GameObject destroyVfxPrefab;
 
         public void Init()
@@ -17,7 +18,12 @@ namespace Test_Pendulum
         }
 
         public void SetPosition(Vector3 position) => transform.position = position;
-        public void EnablePhysics(bool isEnabled) => rb.isKinematic = !isEnabled;
+
+        public void EnablePhysics(bool isEnabled)
+        {
+            collider2d.enabled = isEnabled;
+            rb.isKinematic = !isEnabled;
+        }
 
         public void Destroy()
         {

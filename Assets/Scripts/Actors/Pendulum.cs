@@ -12,26 +12,43 @@ namespace Test_Pendulum
         [SerializeField] private Transform endPoint;
         [SerializeField] private float maxAngle;
         [SerializeField] private float speed;
+        [SerializeField] private float ballSpawnDelay;
 
+        private Input input;
         private BallSpawner ballSpawner;
         private Ball ball;
+        private float timer;
 
         [Inject]
-        public void Init(BallSpawner ballSpawner)
+        public void Init(Input input, BallSpawner ballSpawner)
         {
+            this.input = input;
             this.ballSpawner = ballSpawner;
 
-            SpawnBall(ballSpawner);
+            input.OnRelease += ReleaseBall;
+        }
+
+        private void OnDestroy()
+        {
+            input.OnRelease -= ReleaseBall;
         }
 
         private void Update()
         {
+            timer -= Time.deltaTime;
+
             Rotate();
+            SpawnBall();
             MoveBall();
         }
 
-        private void SpawnBall(BallSpawner ballSpawner)
+        private void SpawnBall()
         {
+            if (ball != null)
+                return;
+            if (timer > 0)
+                return;
+
             ball = ballSpawner.Create(endPoint.position, false);
         }
 
@@ -42,6 +59,7 @@ namespace Test_Pendulum
 
             ball.EnablePhysics(true);
             ball = null;
+            timer = ballSpawnDelay;
         }
 
         private void Rotate()

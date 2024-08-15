@@ -164,3 +164,4 @@ MonoBehaviour:
   endPoint: {fileID: 7444487732976459547}
   maxAngle: 45
   speed: 4
+  ballSpawnDelay: 1

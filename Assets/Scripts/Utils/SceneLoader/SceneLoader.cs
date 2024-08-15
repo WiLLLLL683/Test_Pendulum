@@ -25,14 +25,16 @@ namespace Utils
 
         public IEnumerator LoadRoutine(string sceneName, LoadSceneMode mode = LoadSceneMode.Additive)
         {
-            loadScreenUI.Show();
+            yield return new WaitForSeconds(1f);
+
+            yield return loadScreenUI.Show();
 
             //загрузка сцены
             AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName, mode);
             operation.allowSceneActivation = false;
             while (!operation.isDone)
             {
-                loadScreenUI.SetProgress(operation);
+                loadScreenUI.SetProgress(operation.progress / 0.9f);
 
                 if (operation.progress >= 0.9f)
                 {
@@ -46,7 +48,7 @@ namespace Utils
             Scene scene = SceneManager.GetSceneByName(sceneName);
             SceneManager.SetActiveScene(scene);
 
-            loadScreenUI.Hide();
+            yield return loadScreenUI.Hide();
 
             Debug.Log($"<b><color=cyan>{sceneName} is loaded</color></b>", this);
         }

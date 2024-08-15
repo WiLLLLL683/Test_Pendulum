@@ -346,10 +346,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1002813876105217069, guid: 955c944e8c5ff9c41b3ba8643f9063c9, type: 3}
-      propertyPath: fadeSpeed
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1561416997830489205, guid: 955c944e8c5ff9c41b3ba8643f9063c9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

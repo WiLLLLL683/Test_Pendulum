@@ -9,25 +9,29 @@ public class LoadScreenUI : MonoBehaviour
     [SerializeField] private Image progressBar;
     [SerializeField] private float fadeSpeed;
 
-    public void SetProgress(float progress) => progressBar.fillAmount = Mathf.Clamp01(progress);
-    public void SetProgress(AsyncOperation operation) => progressBar.fillAmount = Mathf.Clamp01(operation.progress/0.9f);
-
-    public void Show()
+    public void SetProgress(float progress)
     {
-        StopAllCoroutines();
-        StartCoroutine(FadeIn(screen));
+        if (progressBar == null)
+            return;
+
+        progressBar.fillAmount = Mathf.Clamp01(progress);
     }
 
-    public void Hide()
+    public IEnumerator Show()
     {
         StopAllCoroutines();
-        StartCoroutine(FadeOut(screen));
+        yield return FadeIn(screen);
+    }
+
+    public IEnumerator Hide()
+    {
+        StopAllCoroutines();
+        yield return FadeOut(screen);
     }
 
     private IEnumerator FadeIn(CanvasGroup screen)
     {
-        screen.alpha = 0;
-        screen.gameObject.SetActive(true);
+        screen.interactable = true;
 
         while (screen.alpha < 1)
         {
@@ -38,14 +42,12 @@ public class LoadScreenUI : MonoBehaviour
 
     private IEnumerator FadeOut(CanvasGroup screen)
     {
-        screen.alpha = 1;
-
         while (screen.alpha > 0)
         {
             screen.alpha -= Time.unscaledDeltaTime * fadeSpeed;
             yield return null;
         }
 
-        screen.gameObject.SetActive(false);
+        screen.interactable = false;
     }
 }

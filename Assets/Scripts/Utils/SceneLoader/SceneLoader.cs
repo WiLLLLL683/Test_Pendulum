@@ -18,14 +18,17 @@ namespace Utils
                 SceneManager.UnloadSceneAsync(scene);
         }
 
-        public void LoadScene(string sceneName, LoadSceneMode mode = LoadSceneMode.Additive)
+        public void LoadScene(string sceneName, LoadSceneMode mode = LoadSceneMode.Additive, bool showLoadScreen = true)
         {
-            StartCoroutine(LoadRoutine(sceneName, mode));
+            StartCoroutine(LoadRoutine(sceneName, mode, showLoadScreen));
         }
 
-        public IEnumerator LoadRoutine(string sceneName, LoadSceneMode mode = LoadSceneMode.Additive)
+        public IEnumerator LoadRoutine(string sceneName, LoadSceneMode mode = LoadSceneMode.Additive, bool showLoadScreen = true)
         {
-            yield return loadScreenUI.Show();
+            if (showLoadScreen)
+            {
+                yield return loadScreenUI.Show();
+            }
 
             //загрузка сцены
             AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName, mode);
@@ -46,7 +49,10 @@ namespace Utils
             Scene scene = SceneManager.GetSceneByName(sceneName);
             SceneManager.SetActiveScene(scene);
 
-            yield return loadScreenUI.Hide();
+            if (showLoadScreen)
+            {
+                yield return loadScreenUI.Hide();
+            }
 
             Debug.Log($"<b><color=cyan>{sceneName} is loaded</color></b>", this);
         }

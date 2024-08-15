@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using Utils;
 using Zenject;
 
 namespace Test_Pendulum
 {
-    public class MainMenuUI : MonoBehaviour
+    public class GamePlayUI : MonoBehaviour
     {
         private SceneLoader sceneLoader;
 
@@ -17,10 +16,9 @@ namespace Test_Pendulum
             this.sceneLoader = sceneLoader;
         }
 
-        public void Button_StartGame()
+        public void Button_GameOver()
         {
-            sceneLoader.UnloadScene(GlobalConstants.MAIN_MENU_SCENE);
-            sceneLoader.LoadScene(GlobalConstants.GAMEPLAY_SCENE);
+            sceneLoader.LoadScene(GlobalConstants.GAME_OVER_SCENE, showLoadScreen: false);
         }
     }
 }

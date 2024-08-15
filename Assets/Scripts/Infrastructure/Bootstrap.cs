@@ -8,7 +8,7 @@ namespace Test_Pendulum
 {
     public class Bootstrap : MonoBehaviour
     {
-        [SerializeField] private SceneLoader sceneLoader;
+        private SceneLoader sceneLoader;
 
         [Inject]
         public void Init(SceneLoader sceneLoader)

@@ -31,7 +31,7 @@ public class LoadScreenUI : MonoBehaviour
 
     private IEnumerator FadeIn(CanvasGroup screen)
     {
-        screen.interactable = true;
+        screen.gameObject.SetActive(true);
 
         while (screen.alpha < 1)
         {
@@ -48,6 +48,6 @@ public class LoadScreenUI : MonoBehaviour
             yield return null;
         }
 
-        screen.interactable = false;
+        screen.gameObject.SetActive(false);
     }
 }

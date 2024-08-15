@@ -11,7 +11,7 @@ namespace Test_Pendulum
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private GameObject destroyVfxPrefab;
 
-        private void Init()
+        public void Init()
         {
 
         }

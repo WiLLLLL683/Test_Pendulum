@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneLoader: {fileID: 3835553958084974597}
+  ballPrefab: {fileID: 7713984218341244901, guid: 00d96802b41547e4fa0f103f5290b632, type: 3}
 --- !u!1001 &8383505444157514779
 PrefabInstance:
   m_ObjectHideFlags: 0

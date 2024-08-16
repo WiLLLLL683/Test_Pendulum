@@ -15,10 +15,12 @@ namespace Test_Pendulum
         public bool IsInTower { get; private set; }
 
         private BallConfig config;
+        private ScoreService scoreService;
 
-        public void Init(BallConfig config)
+        public void Init(BallConfig config, ScoreService scoreService)
         {
             this.config = config;
+            this.scoreService = scoreService;
             Id = config.Id;
             sprite.color = config.Color;
         }
@@ -35,6 +37,7 @@ namespace Test_Pendulum
         {
             DestroyVFX vfx = Instantiate(destroyVfxPrefab, transform.position, Quaternion.identity);
             vfx.Play(config.Color);
+            scoreService.AddPoints(config.PointsForDestroy);
             Destroy(gameObject);
         }
     }

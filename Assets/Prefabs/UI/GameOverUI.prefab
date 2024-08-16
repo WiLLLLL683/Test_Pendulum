@@ -321,6 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c57ec99611d9194fb299ecac660d87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 9140516424632087758}
 --- !u!223 &7151575863349952528
 Canvas:
   m_ObjectHideFlags: 0

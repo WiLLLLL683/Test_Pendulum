@@ -9,12 +9,14 @@ namespace Test_Pendulum
     {
         private SceneLoader sceneLoader;
         private readonly Input input;
+        private readonly ScoreService scoreService;
         private Pendulum pendulum;
 
-        public GamePlayState(SceneLoader sceneLoader, Input input)
+        public GamePlayState(SceneLoader sceneLoader, Input input, ScoreService scoreService)
         {
             this.sceneLoader = sceneLoader;
             this.input = input;
+            this.scoreService = scoreService;
         }
 
         public IEnumerator OnEnter()
@@ -24,6 +26,7 @@ namespace Test_Pendulum
             sceneLoader.UnloadScene(GlobalConstants.GAME_OVER_SCENE);
             yield return sceneLoader.LoadScene(GlobalConstants.GAMEPLAY_SCENE);
 
+            scoreService.Reset();
             input.Enable();
             pendulum = GameObject.FindObjectOfType<Pendulum>();
             pendulum?.Enable();

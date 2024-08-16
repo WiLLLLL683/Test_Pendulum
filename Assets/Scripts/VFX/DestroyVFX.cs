@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Pool;
 using UnityEngine.VFX;
 
 namespace Test_Pendulum
@@ -11,7 +12,14 @@ namespace Test_Pendulum
     {
         [SerializeField] private VisualEffect visualEffect;
 
+        private ObjectPool<DestroyVFX> pool;
         private bool hasPlayed;
+
+        public void Init(ObjectPool<DestroyVFX> pool)
+        {
+            this.pool = pool;
+            hasPlayed = false;
+        }
 
         public void Update()
         {
@@ -25,7 +33,7 @@ namespace Test_Pendulum
 
             if (visualEffect.aliveParticleCount == 0 && hasPlayed)
             {
-                Destroy(gameObject);
+                pool.Release(this);
             }
         }
 

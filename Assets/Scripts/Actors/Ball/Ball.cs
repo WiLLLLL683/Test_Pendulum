@@ -21,12 +21,14 @@ namespace Test_Pendulum
         private BallConfig config;
         private ScoreService scoreService;
         private ObjectPool<Ball> pool;
+        private VFXFactory vfxFactory;
 
-        public void Init(BallConfig config, ScoreService scoreService, ObjectPool<Ball> pool)
+        public void Init(BallConfig config, ScoreService scoreService, ObjectPool<Ball> pool, VFXFactory vfxFactory)
         {
             this.config = config;
             this.scoreService = scoreService;
             this.pool = pool;
+            this.vfxFactory = vfxFactory;
             Id = config.Id;
             sprite.color = config.Color;
             IsInTower = false;
@@ -43,7 +45,7 @@ namespace Test_Pendulum
 
         public void Destroy()
         {
-            DestroyVFX vfx = Instantiate(destroyVfxPrefab, transform.position, Quaternion.identity);
+            DestroyVFX vfx = vfxFactory.Create(destroyVfxPrefab, transform.position);
             vfx.Play(config.Color);
             scoreService.AddPoints(config.PointsForDestroy);
             pool.Release(this);

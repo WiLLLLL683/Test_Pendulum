@@ -7,6 +7,7 @@ namespace Test_Pendulum
         public override void InstallBindings()
         {
             Container.Bind<BallFactory>().AsSingle();
+            Container.Bind<VFXFactory>().AsSingle();
         }
     }
 }

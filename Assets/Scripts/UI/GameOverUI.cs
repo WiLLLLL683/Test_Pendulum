@@ -10,7 +10,7 @@ namespace Test_Pendulum
     public class GameOverUI : MonoBehaviour
     {
         [SerializeField] private TMP_Text scoreText;
-        
+
         private StateMachine stateMachine;
         private ScoreService scoreService;
 

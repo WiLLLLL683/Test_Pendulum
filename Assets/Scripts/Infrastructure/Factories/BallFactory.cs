@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace Test_Pendulum
 {
-    public class BallSpawner
+    public class BallFactory
     {
         private readonly ConfigProvider configProvider;
         private readonly ScoreService scoreService;
 
-        public BallSpawner(ConfigProvider configProvider, ScoreService scoreService)
+        public BallFactory(ConfigProvider configProvider, ScoreService scoreService)
         {
             this.configProvider = configProvider;
             this.scoreService = scoreService;

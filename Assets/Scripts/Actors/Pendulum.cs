@@ -15,16 +15,16 @@ namespace Test_Pendulum
         [SerializeField] private float ballSpawnDelay;
 
         private Input input;
-        private BallSpawner ballSpawner;
+        private BallFactory ballFactory;
         private Ball ball;
         private float timer;
         private bool isEnabled;
 
         [Inject]
-        public void Init(Input input, BallSpawner ballSpawner)
+        public void Init(Input input, BallFactory ballFactory)
         {
             this.input = input;
-            this.ballSpawner = ballSpawner;
+            this.ballFactory = ballFactory;
 
             input.OnRelease += ReleaseBall;
         }
@@ -56,7 +56,7 @@ namespace Test_Pendulum
             if (timer > 0)
                 return;
 
-            ball = ballSpawner.Create(endPoint.position, false);
+            ball = ballFactory.Create(endPoint.position, false);
         }
 
         private void ReleaseBall()

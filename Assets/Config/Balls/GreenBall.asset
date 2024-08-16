@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 2
   Color: {r: 0.53616357, g: 1, b: 0.4433962, a: 1}
-  PointsForDestroy: 0
+  PointsForDestroy: 10

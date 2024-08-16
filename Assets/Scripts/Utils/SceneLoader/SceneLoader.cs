@@ -18,12 +18,7 @@ namespace Utils
                 SceneManager.UnloadSceneAsync(scene);
         }
 
-        public void LoadScene(string sceneName, LoadSceneMode mode = LoadSceneMode.Additive, bool showLoadScreen = true)
-        {
-            StartCoroutine(LoadRoutine(sceneName, mode, showLoadScreen));
-        }
-
-        public IEnumerator LoadRoutine(string sceneName, LoadSceneMode mode = LoadSceneMode.Additive, bool showLoadScreen = true)
+        public IEnumerator LoadScene(string sceneName, LoadSceneMode mode = LoadSceneMode.Additive, bool showLoadScreen = true)
         {
             if (showLoadScreen)
             {
@@ -49,10 +44,7 @@ namespace Utils
             Scene scene = SceneManager.GetSceneByName(sceneName);
             SceneManager.SetActiveScene(scene);
 
-            if (showLoadScreen)
-            {
-                yield return loadScreenUI.Hide();
-            }
+            StartCoroutine(loadScreenUI.Hide());
 
             Debug.Log($"<b><color=cyan>{sceneName} is loaded</color></b>", this);
         }

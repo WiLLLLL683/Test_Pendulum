@@ -18,6 +18,7 @@ namespace Test_Pendulum
         private BallSpawner ballSpawner;
         private Ball ball;
         private float timer;
+        private bool isEnabled;
 
         [Inject]
         public void Init(Input input, BallSpawner ballSpawner)
@@ -35,12 +36,18 @@ namespace Test_Pendulum
 
         private void Update()
         {
+            if (!isEnabled)
+                return;
+
             timer -= Time.deltaTime;
 
             Rotate();
             SpawnBall();
             MoveBall();
         }
+
+        public void Enable() => isEnabled = true;
+        public void Disable() => isEnabled = false;
 
         private void SpawnBall()
         {

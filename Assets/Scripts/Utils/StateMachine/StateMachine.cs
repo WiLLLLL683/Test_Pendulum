@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
@@ -10,25 +11,21 @@ namespace Utils
         public IExitableState CurrentState { get; private set; }
 
         private readonly Dictionary<Type, IExitableState> states = new();
+        private readonly CoroutineRunner coroutineRunner;
+
+        private Coroutine coroutine;
+
+        public StateMachine(CoroutineRunner coroutineRunner)
+        {
+            this.coroutineRunner = coroutineRunner;
+        }
 
         public void EnterState<T>() where T : IState
         {
-            T newState = GetState<T>();
-            if (newState == null)
-                return;
+            if (coroutine != null)
+                coroutineRunner.StopCoroutine(coroutine);
 
-            ChangeState(newState);
-            newState.OnEnter();
-        }
-
-        public void EnterState<T, TPayLoad>(TPayLoad payLoad) where T : IPayLoadedState<TPayLoad>
-        {
-            T newState = GetState<T>();
-            if (newState == null)
-                return;
-
-            ChangeState(newState);
-            newState.OnEnter(payLoad);
+            coroutine = coroutineRunner.StartCoroutine(EnterStateRoutine<T>());
         }
 
         public void AddState(IExitableState state)
@@ -50,13 +47,19 @@ namespace Utils
 
         public void Update() => CurrentState.OnUpdate();
 
+        private IEnumerator EnterStateRoutine<T>() where T : IState
+        {
+            T newState = GetState<T>();
+            if (newState == null)
+                yield break;
+
+            ChangeState(newState);
+            yield return newState.OnEnter();
+        }
+
         private void ChangeState(IExitableState newState)
         {
-            if (CurrentState != null)
-            {
-                CurrentState.OnExit();
-            }
-
+            CurrentState?.OnExit();
             CurrentState = newState;
         }
     }

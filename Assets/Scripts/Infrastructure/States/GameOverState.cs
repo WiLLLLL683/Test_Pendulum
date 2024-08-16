@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Utils;
 
 namespace Test_Pendulum
@@ -12,9 +13,9 @@ namespace Test_Pendulum
             this.sceneLoader = sceneLoader;
         }
 
-        public void OnEnter()
+        public IEnumerator OnEnter()
         {
-            sceneLoader.LoadScene(GlobalConstants.GAME_OVER_SCENE, showLoadScreen: false);
+            yield return sceneLoader.LoadScene(GlobalConstants.GAME_OVER_SCENE, showLoadScreen: false);
         }
 
         public void OnExit()

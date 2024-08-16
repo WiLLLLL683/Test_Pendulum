@@ -35,7 +35,6 @@ namespace Test_Pendulum
             for (int i = 0; i < towers.Count; i++)
             {
                 towers[i].Init(maxHeight);
-                towers[i].OnBallAdded += CheckFull;
                 towers[i].OnBallAdded += CheckMatch;
             }
         }
@@ -44,28 +43,7 @@ namespace Test_Pendulum
         {
             for (int i = 0; i < towers.Count; i++)
             {
-                towers[i].OnBallAdded -= CheckFull;
                 towers[i].OnBallAdded -= CheckMatch;
-            }
-        }
-
-        private void CheckFull()
-        {
-            //counting full towers
-            int fullCount = 0;
-
-            for (int i = 0; i < towers.Count; i++)
-            {
-                if (towers[i].IsFull)
-                {
-                    fullCount++;
-                }
-            }
-
-            //GameOver check
-            if (fullCount == towers.Count)
-            {
-                stateMachine.EnterState<GameOverState>();
             }
         }
 
@@ -86,6 +64,28 @@ namespace Test_Pendulum
                 {
                     towers[j].DestroyBall(match[i]);
                 }
+            }
+
+            CheckFull();
+        }
+
+        private void CheckFull()
+        {
+            //counting full towers
+            int fullCount = 0;
+
+            for (int i = 0; i < towers.Count; i++)
+            {
+                if (towers[i].IsFull)
+                {
+                    fullCount++;
+                }
+            }
+
+            //GameOver check
+            if (fullCount == towers.Count)
+            {
+                stateMachine.EnterState<GameOverState>();
             }
         }
     }

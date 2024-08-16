@@ -4,6 +4,6 @@ namespace Utils
 {
     public interface IState : IExitableState
     {
-        public void OnEnter();
+        public IEnumerator OnEnter();
     }
 }

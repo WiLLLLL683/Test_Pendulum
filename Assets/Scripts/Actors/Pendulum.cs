@@ -16,15 +16,17 @@ namespace Test_Pendulum
 
         private Input input;
         private BallFactory ballFactory;
+        private ConfigProvider configProvider;
         private Ball ball;
         private float timer;
         private bool isEnabled;
 
         [Inject]
-        public void Init(Input input, BallFactory ballFactory)
+        public void Init(Input input, BallFactory ballFactory, ConfigProvider configProvider)
         {
             this.input = input;
             this.ballFactory = ballFactory;
+            this.configProvider = configProvider;
 
             input.OnRelease += ReleaseBall;
         }
@@ -56,7 +58,7 @@ namespace Test_Pendulum
             if (timer > 0)
                 return;
 
-            ball = ballFactory.Create(endPoint.position, false);
+            ball = ballFactory.CreateRandom(configProvider.BallPrefab, endPoint.position, false);
         }
 
         private void ReleaseBall()

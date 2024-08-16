@@ -10,6 +10,7 @@ namespace Test_Pendulum
         [SerializeField] private SceneLoader sceneLoader;
         [SerializeField] private CoroutineRunner coroutineRunner;
         [SerializeField] private Ball ballPrefab;
+        [SerializeField] private Ball ballWithTimerPrefab;
         [SerializeField] private List<BallConfig> ballConfigs = new();
 
         public override void InstallBindings()
@@ -19,7 +20,7 @@ namespace Test_Pendulum
             Container.Bind<StateMachine>().AsSingle();
             Container.Bind<StateFactory>().AsSingle();
             Container.Bind<Input>().AsSingle();
-            Container.Bind<ConfigProvider>().FromInstance(new ConfigProvider(ballConfigs, ballPrefab)).AsSingle();
+            Container.Bind<ConfigProvider>().FromInstance(new ConfigProvider(ballConfigs, ballPrefab, ballWithTimerPrefab)).AsSingle();
             Container.Bind<BallFactory>().AsSingle();
             Container.Bind<ScoreService>().AsSingle();
         }

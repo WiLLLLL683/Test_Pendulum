@@ -15,10 +15,13 @@ namespace Test_Pendulum
             this.scoreService = scoreService;
         }
 
-        public Ball Create(Vector3 position, bool hasPhysics = true) //TODO config
+        public Ball CreateRandom(Ball prefab, Vector3 position, bool hasPhysics = true) =>
+            Create(prefab, position, configProvider.GetRandomBallConfig(), hasPhysics);
+
+        public Ball Create(Ball prefab, Vector3 position, BallConfig config, bool hasPhysics = true)
         {
-            Ball ball = GameObject.Instantiate(configProvider.BallPrefab, position, Quaternion.identity);
-            ball.Init(configProvider.GetRandomBallConfig(), scoreService);
+            Ball ball = GameObject.Instantiate(prefab, position, Quaternion.identity);
+            ball.Init(config, scoreService);
             ball.EnablePhysics(hasPhysics);
             return ball;
         }

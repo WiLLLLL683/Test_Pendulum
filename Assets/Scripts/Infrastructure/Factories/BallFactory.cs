@@ -9,6 +9,7 @@ namespace Test_Pendulum
     {
         private readonly ConfigProvider configProvider;
         private readonly ScoreService scoreService;
+        private readonly AudioService audioService;
         private readonly VFXFactory vfxFactory;
         private readonly ObjectPool<Ball> pool;
 
@@ -17,10 +18,11 @@ namespace Test_Pendulum
         private BallConfig config;
         private bool hasPhysics;
 
-        public BallFactory(ConfigProvider configProvider, ScoreService scoreService, VFXFactory vfxFactory)
+        public BallFactory(ConfigProvider configProvider, ScoreService scoreService, AudioService audioService, VFXFactory vfxFactory)
         {
             this.configProvider = configProvider;
             this.scoreService = scoreService;
+            this.audioService = audioService;
             this.vfxFactory = vfxFactory;
             pool = new(Instantiate, Get, Release, Destroy, true, 100, 1000);
         }
@@ -50,7 +52,7 @@ namespace Test_Pendulum
 
             ball.gameObject.SetActive(true);
             ball.transform.position = position;
-            ball.Init(config, scoreService, pool, vfxFactory);
+            ball.Init(config, scoreService, audioService, pool, vfxFactory);
             ball.EnablePhysics(hasPhysics);
         }
 

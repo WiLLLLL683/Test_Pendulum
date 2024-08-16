@@ -34,13 +34,15 @@ namespace Test_Pendulum
 
         public void OnExit()
         {
+            AudioSource music = GameObject.FindObjectOfType<AudioSource>();
+            music.Stop();
+
             pendulum?.Disable();
             input.Disable();
         }
 
         public void OnUpdate()
         {
-
         }
     }
 }

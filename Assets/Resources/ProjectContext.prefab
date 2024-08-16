@@ -84,6 +84,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0c19a73ec938ebb47adca6f3caa4d5d8, type: 2}
   - {fileID: 11400000, guid: d2fe5e91009d26b43be9f2638f316ed9, type: 2}
   - {fileID: 11400000, guid: 72422ee1a8ddc20419c16d382c7fb57a, type: 2}
+  gameOverSound: {fileID: 8300000, guid: a0a0ab61c79106ae1972a537ea8562ab, type: 3}
+  sfxAudioGroup: {fileID: 53113523867285126, guid: bc098a7af2674704c91d77f16506ab20, type: 2}
 --- !u!1 &8848849796340761132
 GameObject:
   m_ObjectHideFlags: 0

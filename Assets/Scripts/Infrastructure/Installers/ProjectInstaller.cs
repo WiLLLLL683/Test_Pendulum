@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using Utils;
 using Zenject;
 
@@ -12,6 +13,8 @@ namespace Test_Pendulum
         [SerializeField] private Ball ballPrefab;
         [SerializeField] private Ball ballWithTimerPrefab;
         [SerializeField] private List<BallConfig> ballConfigs = new();
+        [SerializeField] private AudioClip gameOverSound;
+        [SerializeField] private AudioMixerGroup sfxAudioGroup;
 
         public override void InstallBindings()
         {
@@ -20,8 +23,9 @@ namespace Test_Pendulum
             Container.Bind<StateMachine>().AsSingle();
             Container.Bind<StateFactory>().AsSingle();
             Container.Bind<Input>().AsSingle();
-            Container.Bind<ConfigProvider>().FromInstance(new ConfigProvider(ballConfigs, ballPrefab, ballWithTimerPrefab)).AsSingle();
+            Container.Bind<ConfigProvider>().FromInstance(new ConfigProvider(ballConfigs, ballPrefab, ballWithTimerPrefab, gameOverSound)).AsSingle();
             Container.Bind<ScoreService>().AsSingle();
+            Container.Bind<AudioService>().FromInstance(new(sfxAudioGroup)).AsSingle();
         }
     }
 }

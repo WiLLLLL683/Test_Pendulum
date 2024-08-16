@@ -15,4 +15,20 @@ MonoBehaviour:
   Id: 2
   Color: {r: 0.53616357, g: 1, b: 0.4433962, a: 1}
   Sprite: {fileID: 21300004, guid: 51e2a399831333b478ec978ee598bf0e, type: 3}
+  DestroySounds:
+  - {fileID: 8300000, guid: 9d0113dd16699ce4ea3c58dd422fdc1f, type: 3}
+  - {fileID: 8300000, guid: 632b1c41f6a368540970d173af4f782f, type: 3}
+  - {fileID: 8300000, guid: 2b8670b132d29984c93743808adbfcb3, type: 3}
+  - {fileID: 8300000, guid: e759c65f76c80834abc572593f946008, type: 3}
+  - {fileID: 8300000, guid: 99001d6f0f253fd40b0c768f86436b29, type: 3}
+  - {fileID: 8300000, guid: e26b12344a8fdd2439361d014323be33, type: 3}
+  - {fileID: 8300000, guid: d4b4564ad8ca7254c9d41efb905858eb, type: 3}
+  - {fileID: 8300000, guid: 09f8dc09efedc414784e7ba556669245, type: 3}
+  - {fileID: 8300000, guid: ebb03b2b009894845b81a64051a5c698, type: 3}
+  - {fileID: 8300000, guid: ae9ac757ba0b39e4f91369d167331c3e, type: 3}
+  - {fileID: 8300000, guid: 4e002e449fed29440b6a89814af2e231, type: 3}
+  - {fileID: 8300000, guid: 1340ba1fa579f674ab71453241682a8a, type: 3}
+  - {fileID: 8300000, guid: 41c5c2b983676c14abbebce504e00d9a, type: 3}
+  - {fileID: 8300000, guid: 2c27e0f020620d1439d65d3b752725de, type: 3}
   PointsForDestroy: 10
+  SFXAudioGroup: {fileID: 53113523867285126, guid: bc098a7af2674704c91d77f16506ab20, type: 2}

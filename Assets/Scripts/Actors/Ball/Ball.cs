@@ -20,13 +20,15 @@ namespace Test_Pendulum
 
         private BallConfig config;
         private ScoreService scoreService;
+        private AudioService audioService;
         private ObjectPool<Ball> pool;
         private VFXFactory vfxFactory;
 
-        public void Init(BallConfig config, ScoreService scoreService, ObjectPool<Ball> pool, VFXFactory vfxFactory)
+        public void Init(BallConfig config, ScoreService scoreService, AudioService audioService, ObjectPool<Ball> pool, VFXFactory vfxFactory)
         {
             this.config = config;
             this.scoreService = scoreService;
+            this.audioService = audioService;
             this.pool = pool;
             this.vfxFactory = vfxFactory;
             Id = config.Id;
@@ -48,6 +50,8 @@ namespace Test_Pendulum
             DestroyVFX vfx = vfxFactory.Create(destroyVfxPrefab, transform.position);
             vfx.Play(config.Color);
             scoreService.AddPoints(config.PointsForDestroy);
+            audioService.PlaySFX(config.GetRandomDestroySound(), transform.position);
+
             pool.Release(this);
             OnDestroy?.Invoke(this);
         }

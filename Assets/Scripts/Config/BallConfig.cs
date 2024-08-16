@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Test_Pendulum
 {
@@ -9,6 +10,12 @@ namespace Test_Pendulum
         public int Id;
         public Color Color;
         public Sprite Sprite;
+        public AudioClip[] DestroySounds;
         public int PointsForDestroy;
+
+        public AudioClip GetRandomDestroySound()
+        {
+            return DestroySounds[UnityEngine.Random.Range(0, DestroySounds.Length)];
+        }
     }
 }

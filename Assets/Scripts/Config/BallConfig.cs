@@ -8,6 +8,7 @@ namespace Test_Pendulum
     {
         public int Id;
         public Color Color;
+        public Sprite Sprite;
         public int PointsForDestroy;
     }
 }

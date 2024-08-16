@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 1
   Color: {r: 0.2924527, g: 0.50243443, b: 1, a: 1}
+  Sprite: {fileID: 21300008, guid: 51e2a399831333b478ec978ee598bf0e, type: 3}
   PointsForDestroy: 25

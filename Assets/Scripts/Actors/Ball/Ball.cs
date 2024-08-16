@@ -30,7 +30,7 @@ namespace Test_Pendulum
             this.pool = pool;
             this.vfxFactory = vfxFactory;
             Id = config.Id;
-            sprite.color = config.Color;
+            sprite.sprite = config.Sprite;
             IsInTower = false;
         }
 

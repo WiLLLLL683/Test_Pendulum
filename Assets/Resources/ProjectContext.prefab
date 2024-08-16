@@ -77,6 +77,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneLoader: {fileID: 3835553958084974597}
   ballPrefab: {fileID: 7713984218341244901, guid: 00d96802b41547e4fa0f103f5290b632, type: 3}
+  ballConfigs:
+  - {fileID: 11400000, guid: 0c19a73ec938ebb47adca6f3caa4d5d8, type: 2}
+  - {fileID: 11400000, guid: d2fe5e91009d26b43be9f2638f316ed9, type: 2}
+  - {fileID: 11400000, guid: 72422ee1a8ddc20419c16d382c7fb57a, type: 2}
 --- !u!1001 &8383505444157514779
 PrefabInstance:
   m_ObjectHideFlags: 0

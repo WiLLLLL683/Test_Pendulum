@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.VFX;
 
-namespace TopDownShooter
+namespace Test_Pendulum
 {
     public class DestroyVFX : MonoBehaviour
     {

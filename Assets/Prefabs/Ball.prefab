@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e888a8ee7b7733245839a35722954c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 9160985847734289268}
   rb: {fileID: 7640460580963258984}
   collider2d: {fileID: 3534728175216248951}
   destroyVfxPrefab: {fileID: -419730832501481418, guid: 0a6d94c136ff42d479d0de091ddfa711, type: 3}

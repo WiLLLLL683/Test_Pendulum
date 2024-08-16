@@ -6,17 +6,17 @@ namespace Test_Pendulum
 {
     public class BallSpawner
     {
-        private readonly Ball prefab;
+        private readonly ConfigProvider configProvider;
 
-        public BallSpawner(Ball prefab)
+        public BallSpawner(ConfigProvider configProvider)
         {
-            this.prefab = prefab;
+            this.configProvider = configProvider;
         }
 
         public Ball Create(Vector3 position, bool hasPhysics = true) //TODO config
         {
-            Ball ball = GameObject.Instantiate(prefab, position, Quaternion.identity);
-            ball.Init();
+            Ball ball = GameObject.Instantiate(configProvider.BallPrefab, position, Quaternion.identity);
+            ball.Init(configProvider.GetRandomBallConfig());
             ball.EnablePhysics(hasPhysics);
             return ball;
         }

@@ -52,6 +52,7 @@ MonoBehaviour:
   - {fileID: 2991801630625523740}
   - {fileID: 3470250970597138798}
   maxHeight: 3
+  matchCheckIterations: 3
 --- !u!1001 &821633312082039274
 PrefabInstance:
   m_ObjectHideFlags: 0

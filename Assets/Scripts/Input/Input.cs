@@ -13,15 +13,17 @@ namespace Test_Pendulum
         public Input()
         {
             actions = new GameActions();
-            actions.Enable();
+        }
 
+        public void Enable()
+        {
+            actions.Enable();
             actions.GamePlay.ReleaseBall.performed += ctx => OnRelease?.Invoke();
         }
 
-        public void Dispose()
+        public void Disable()
         {
             actions.GamePlay.ReleaseBall.performed -= ctx => OnRelease?.Invoke();
-
             actions.Disable();
         }
     }

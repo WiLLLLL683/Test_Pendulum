@@ -11,9 +11,11 @@ namespace Test_Pendulum
     {
         [SerializeField] private List<Tower> towers = new();
         [SerializeField] private int maxHeight;
+        [SerializeField] private int matchCheckIterations = 2;
 
         private StateMachine stateMachine;
         private Pattern[] patterns;
+        private List<Ball> match = new();
 
         [Inject]
         public void Init(StateMachine stateMachine)
@@ -35,7 +37,7 @@ namespace Test_Pendulum
             for (int i = 0; i < towers.Count; i++)
             {
                 towers[i].Init(maxHeight);
-                towers[i].OnBallAdded += CheckMatch;
+                towers[i].OnBallAdded += CheckMatchIteratively;
             }
         }
 
@@ -43,21 +45,33 @@ namespace Test_Pendulum
         {
             for (int i = 0; i < towers.Count; i++)
             {
-                towers[i].OnBallAdded -= CheckMatch;
+                towers[i].OnBallAdded -= CheckMatchIteratively;
             }
         }
 
-        private void CheckMatch()
+        private void CheckMatchIteratively()
         {
-            //finding matches
-            List<Ball> match = new();
+            for (int i = 0; i < matchCheckIterations; i++)
+            {
+                FindMatch();
+                DestroyMatch();
+            }
+
+            CheckFull();
+        }
+
+        private void FindMatch()
+        {
+            match.Clear();
 
             for (int i = 0; i < patterns.Length; i++)
             {
                 match.AddRange(patterns[i].Check(towers));
             }
+        }
 
-            //destroying matched balls
+        private void DestroyMatch()
+        {
             for (int i = 0; i < match.Count; i++)
             {
                 for (int j = 0; j < towers.Count; j++)
@@ -65,8 +79,6 @@ namespace Test_Pendulum
                     towers[j].DestroyBall(match[i]);
                 }
             }
-
-            CheckFull();
         }
 
         private void CheckFull()

@@ -8,11 +8,13 @@ namespace Test_Pendulum
     public class GamePlayState : IState
     {
         private SceneLoader sceneLoader;
+        private readonly Input input;
         private Pendulum pendulum;
 
-        public GamePlayState(SceneLoader sceneLoader)
+        public GamePlayState(SceneLoader sceneLoader, Input input)
         {
             this.sceneLoader = sceneLoader;
+            this.input = input;
         }
 
         public IEnumerator OnEnter()
@@ -22,6 +24,7 @@ namespace Test_Pendulum
             sceneLoader.UnloadScene(GlobalConstants.GAME_OVER_SCENE);
             yield return sceneLoader.LoadScene(GlobalConstants.GAMEPLAY_SCENE);
 
+            input.Enable();
             pendulum = GameObject.FindObjectOfType<Pendulum>();
             pendulum?.Enable();
         }
@@ -29,6 +32,7 @@ namespace Test_Pendulum
         public void OnExit()
         {
             pendulum?.Disable();
+            input.Disable();
         }
 
         public void OnUpdate()

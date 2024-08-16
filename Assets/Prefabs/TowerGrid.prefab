@@ -44,7 +44,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8383648610753960282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd48308da91642d44b24fe53d37872d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 031a41380aec4724e99702a343a0ac7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   towers:
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39e7c53e0749451448983e4767cb5d52, type: 3}
+  m_Script: {fileID: 11500000, guid: 298cb0a37240d334f9e9a16c9216ca66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1354117017132390552
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39e7c53e0749451448983e4767cb5d52, type: 3}
+  m_Script: {fileID: 11500000, guid: 298cb0a37240d334f9e9a16c9216ca66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &3029759664982774283
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39e7c53e0749451448983e4767cb5d52, type: 3}
+  m_Script: {fileID: 11500000, guid: 298cb0a37240d334f9e9a16c9216ca66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &2769927470686058818 stripped

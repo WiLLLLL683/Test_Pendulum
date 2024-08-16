@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TopDownShooter;
 using UnityEngine;
 
 namespace Test_Pendulum
@@ -11,7 +12,7 @@ namespace Test_Pendulum
 
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private Collider2D collider2d;
-        [SerializeField] private GameObject destroyVfxPrefab;
+        [SerializeField] private DestroyVFX destroyVfxPrefab;
 
         public void Init()
         {
@@ -28,7 +29,8 @@ namespace Test_Pendulum
 
         public void Destroy()
         {
-            Instantiate(destroyVfxPrefab, transform.position, Quaternion.identity);
+            DestroyVFX vfx = Instantiate(destroyVfxPrefab, transform.position, Quaternion.identity);
+            vfx.Play(Color.green); //TODO config
             Destroy(gameObject);
         }
     }

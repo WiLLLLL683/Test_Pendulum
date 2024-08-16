@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 7640460580963258984}
   collider2d: {fileID: 3534728175216248951}
-  destroyVfxPrefab: {fileID: 6550088993445145575, guid: 0a6d94c136ff42d479d0de091ddfa711, type: 3}
+  destroyVfxPrefab: {fileID: -419730832501481418, guid: 0a6d94c136ff42d479d0de091ddfa711, type: 3}
 --- !u!212 &9160985847734289268
 SpriteRenderer:
   m_ObjectHideFlags: 0

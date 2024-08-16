@@ -22,6 +22,7 @@ namespace Test_Pendulum
 
         private void OnTriggerStay2D(Collider2D collision)
         {
+            //Add only new balls that have stopped
             if (!collision.TryGetComponent(out Ball ball))
                 return;
             if (ball.IsInTower)

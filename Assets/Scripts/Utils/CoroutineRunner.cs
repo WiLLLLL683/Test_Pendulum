@@ -4,7 +4,10 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-public class CoroutineRunner : MonoBehaviour
+namespace Utils
 {
+    public class CoroutineRunner : MonoBehaviour
+    {
 
+    }
 }

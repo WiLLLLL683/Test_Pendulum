@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RedBall
   m_EditorClassIdentifier: 
   Id: 0
-  Color: {r: 1, g: 0.35283017, b: 0.35283017, a: 1}
+  Color: {r: 0.96981126, g: 0.25434664, b: 0.25434664, a: 1}
   Sprite: {fileID: 21300002, guid: 51e2a399831333b478ec978ee598bf0e, type: 3}
   DestroySounds:
   - {fileID: 8300000, guid: 9d0113dd16699ce4ea3c58dd422fdc1f, type: 3}
@@ -31,4 +31,3 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 41c5c2b983676c14abbebce504e00d9a, type: 3}
   - {fileID: 8300000, guid: 2c27e0f020620d1439d65d3b752725de, type: 3}
   PointsForDestroy: 5
-  SFXAudioGroup: {fileID: 53113523867285126, guid: bc098a7af2674704c91d77f16506ab20, type: 2}

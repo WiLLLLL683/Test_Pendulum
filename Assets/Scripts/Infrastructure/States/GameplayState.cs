@@ -7,7 +7,7 @@ namespace Test_Pendulum
 {
     public class GamePlayState : IState
     {
-        private SceneLoader sceneLoader;
+        private readonly SceneLoader sceneLoader;
         private readonly Input input;
         private readonly ScoreService scoreService;
         private Pendulum pendulum;

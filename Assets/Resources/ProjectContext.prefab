@@ -79,7 +79,7 @@ MonoBehaviour:
   sceneLoader: {fileID: 3835553958084974597}
   coroutineRunner: {fileID: 5407473210957908423}
   ballPrefab: {fileID: 7713984218341244901, guid: 00d96802b41547e4fa0f103f5290b632, type: 3}
-  ballWithTimerPrefab: {fileID: 7713984218341244901, guid: 8fdc5c89625e76c4c8e7c4220e5b3fec, type: 3}
+  ballWithTimerPrefab: {fileID: 270243857830228434, guid: 8fdc5c89625e76c4c8e7c4220e5b3fec, type: 3}
   ballConfigs:
   - {fileID: 11400000, guid: 0c19a73ec938ebb47adca6f3caa4d5d8, type: 2}
   - {fileID: 11400000, guid: d2fe5e91009d26b43be9f2638f316ed9, type: 2}

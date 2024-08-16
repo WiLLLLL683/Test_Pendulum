@@ -8,7 +8,8 @@ namespace Test_Pendulum
 {
     public class MainMenuState : IState
     {
-        private SceneLoader sceneLoader;
+        private readonly SceneLoader sceneLoader;
+        private BallInfiniteSpawner ballSpawner;
 
         public MainMenuState(SceneLoader sceneLoader)
         {
@@ -20,11 +21,15 @@ namespace Test_Pendulum
             sceneLoader.UnloadScene(GlobalConstants.GAMEPLAY_SCENE);
             sceneLoader.UnloadScene(GlobalConstants.GAME_OVER_SCENE);
             yield return sceneLoader.LoadScene(GlobalConstants.MAIN_MENU_SCENE);
+
+            ballSpawner = GameObject.FindObjectOfType<BallInfiniteSpawner>();
+            ballSpawner?.Enable();
         }
 
         public void OnExit()
         {
-
+            ballSpawner?.Disable();
+            ballSpawner?.DestroyAll();
         }
 
         public void OnUpdate()

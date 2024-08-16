@@ -21,7 +21,6 @@ namespace Test_Pendulum
             Container.Bind<StateFactory>().AsSingle();
             Container.Bind<Input>().AsSingle();
             Container.Bind<ConfigProvider>().FromInstance(new ConfigProvider(ballConfigs, ballPrefab, ballWithTimerPrefab)).AsSingle();
-            Container.Bind<BallFactory>().AsSingle();
             Container.Bind<ScoreService>().AsSingle();
         }
     }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -13,6 +14,8 @@ namespace Test_Pendulum
         private ConfigProvider configProvider;
         private BallFactory ballFactory;
         private float timer;
+        private bool isEnabled;
+        private List<Ball> balls = new();
 
         [Inject]
         public void Init(ConfigProvider configProvider, BallFactory ballFactory)
@@ -21,8 +24,22 @@ namespace Test_Pendulum
             this.ballFactory = ballFactory;
         }
 
+        public void Enable() => isEnabled = true;
+        public void Disable() => isEnabled = false;
+
+        public void DestroyAll()
+        {
+            for (int i = 0; i < balls.Count; i++)
+            {
+                balls[i].Destroy();
+            }
+        }
+
         private void Update()
         {
+            if (!isEnabled)
+                return;
+
             timer -= Time.deltaTime;
 
             if (timer <= 0)
@@ -36,7 +53,20 @@ namespace Test_Pendulum
         {
             float x = Random.Range(leftDownCorner.position.x, rightTopCorner.position.x);
             float y = Random.Range(leftDownCorner.position.y, rightTopCorner.position.y);
-            ballFactory.CreateRandom(configProvider.BallWithTimerPrefab, new(x, y), true);
+            Ball ball = ballFactory.CreateRandom(configProvider.BallWithTimerPrefab, new(x, y), true);
+
+        }
+
+        private void Register(Ball ball)
+        {
+            balls.Add(ball);
+            ball.OnDestroy += Deregister;
+        }
+
+        private void Deregister(Ball ball)
+        {
+            ball.OnDestroy -= Deregister;
+            balls.Remove(ball);
         }
     }
 }

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1209763796346237857}
-  - component: {fileID: 7713984218341244901}
   - component: {fileID: 270243857830228434}
   - component: {fileID: 9160985847734289268}
   - component: {fileID: 3534728175216248951}
@@ -36,22 +35,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7713984218341244901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6912997540930727585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e888a8ee7b7733245839a35722954c06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite: {fileID: 9160985847734289268}
-  rb: {fileID: 7640460580963258984}
-  collider2d: {fileID: 3534728175216248951}
-  destroyVfxPrefab: {fileID: -419730832501481418, guid: 0a6d94c136ff42d479d0de091ddfa711, type: 3}
 --- !u!114 &270243857830228434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,7 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9435dbc4a995c4aa6f460fbe7371fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 7713984218341244901}
+  sprite: {fileID: 9160985847734289268}
+  rb: {fileID: 7640460580963258984}
+  collider2d: {fileID: 3534728175216248951}
+  destroyVfxPrefab: {fileID: -419730832501481418, guid: 0a6d94c136ff42d479d0de091ddfa711, type: 3}
   delayMin: 4
   delayMax: 6
 --- !u!212 &9160985847734289268

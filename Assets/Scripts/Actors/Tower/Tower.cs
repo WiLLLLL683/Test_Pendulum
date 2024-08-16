@@ -9,9 +9,11 @@ namespace Test_Pendulum
     public class Tower : MonoBehaviour
     {
         public Ball[] Balls { get; private set; }
-        public bool IsFull { get; private set; }
+        public bool IsFull => ballCount == Balls.Length;
 
         public event Action OnBallAdded;
+
+        private int ballCount;
 
         public void Init(int maxBalls)
         {
@@ -37,6 +39,7 @@ namespace Test_Pendulum
 
             ball.SetInTower(true);
             Balls[index] = ball;
+            ballCount++;
             OnBallAdded?.Invoke();
         }
 
@@ -47,6 +50,7 @@ namespace Test_Pendulum
 
             Balls[index].Destroy();
             Balls[index] = null;
+            ballCount--;
             MoveBallsDownInArray();
         }
 
@@ -77,7 +81,6 @@ namespace Test_Pendulum
             }
 
             index = -1;
-            IsFull = true;
             return false;
         }
 

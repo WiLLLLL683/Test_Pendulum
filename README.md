@@ -35,6 +35,6 @@ file from latest release.
 
 1. Download the [Test_Pendulum.apk](https://github.com/WiLLLLL683/Test_Pendulum/releases/latest/download/Test_Pendulum.apk) 
 file from latest release.
-2. Install in on your device.
+2. Install it on your device.
 3. Run the game.
 4. Tap touchscreen to drop balls into a level.

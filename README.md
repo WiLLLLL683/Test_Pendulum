@@ -2,9 +2,7 @@
 
 This project was made for a test task. It took about 10 hours to make.
 
-<img alt="preview" src="./preview1.gif" height="300px" />
-<img alt="preview" src="./preview2.gif" height="300px" />
-<img alt="preview" src="./preview3.gif" height="300px" />
+<img alt="preview" src="./preview1.gif" height="300px" /> <img alt="preview" src="./preview2.gif" height="300px" /> <img alt="preview" src="./preview3.gif" height="300px" />
 
 ## Installation
 
